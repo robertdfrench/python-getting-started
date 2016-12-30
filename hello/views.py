@@ -40,3 +40,14 @@ def _show_requests(request):
     push_events = PushEvent.objects.all()
     json_events = [json.loads(pe.payload) for pe in push_events]
     return JsonResponse({'data': json_events})
+
+
+@csrf_exempt
+def github_pop(request):
+    push_event = PushEvent.objects.order_by('when').filter(new=True).first()
+    if push_event:
+        json_event = json.loads(push_event.payload)
+        push_event.delete()
+        return JsonResponse({'data': json_event})
+    else:
+        return JsonResponse({})

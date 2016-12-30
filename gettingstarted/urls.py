@@ -13,5 +13,6 @@ urlpatterns = [
     url(r'^$', hello.views.index, name='index'),
     url(r'^db', hello.views.db, name='db'),
     url(r'^admin/', include(admin.site.urls)),
+    url(r'^github-push-events/pop', hello.views.github_pop, name='github_pop'),
     url(r'^github-push-events/', hello.views.github, name='github')
 ]
