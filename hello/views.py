@@ -1,6 +1,7 @@
 from django.shortcuts import render
-from django.http import HttpResponse
+from django.http import HttpResponse, JsonResponse
 from django.views.decorators.csrf import csrf_exempt
+import json
 
 from .models import Greeting, PushEvent
 
@@ -37,4 +38,5 @@ def _new_request(request):
 
 def _show_requests(request):
     push_events = PushEvent.objects.all()
-    return render(request, 'push_events.html', {'push_events': push_events})
+    json_events = [json.loads(pe.payload) for pe in push_events]
+    return JsonResponse({'data': json_events})
