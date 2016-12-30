@@ -18,3 +18,5 @@ def db(request):
 
     return render(request, 'db.html', {'greetings': greetings})
 
+def github(request):
+    return "This is the github route"
