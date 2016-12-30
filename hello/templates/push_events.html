@@ -1,0 +1,21 @@
+{% extends "base.html" %}
+{% load staticfiles %}
+
+{% block content %}
+  <div class="container">
+
+
+<h2>Page View Report</h2>
+
+
+<ul>
+
+{% for push_event in push_events %}
+    <li>{{ push_event.when }} | {{ push_Event.payload }}</li>
+{% endfor %}
+
+</ul>
+
+</div>
+
+{% endblock %}
