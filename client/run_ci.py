@@ -1,6 +1,7 @@
 import shlex
 import os
 import uuid
+from client.util import shell
 
 
 def run(push_event):
