@@ -30,6 +30,7 @@ def github(request):
 def _new_request(request):
     push_event = PushEvent()
     push_event.payload = request.body
+    push_event.new = True
     push_event.save()
     return HttpResponse("This is the github route")
 
