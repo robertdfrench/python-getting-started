@@ -12,6 +12,7 @@ class PushEvent(object):
         self.clone_url = clone_url
         self.commit = commit
 
+    @classmethod
     def fromGithubEvent(cls, event):
         clone_url = event['repository']['clone_url']
         commit = event['head_commit']['id']
