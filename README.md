@@ -1,4 +1,4 @@
-# python-getting-started
+# OLCF CI Thing
 
 A barebones Python app, which can easily be deployed to Heroku.
 
